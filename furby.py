@@ -1425,10 +1425,10 @@ class dlc(object):
 
 		assert((type(action_code) == tuple) and (len(action_code) == 4))
 
-		sequence_no = self.dlc_sections["XLS"].action_tree[action_code[0]][action_code[1]][action_code[2]][action_code[3]]["seq"]
-		apl_no = self.dlc_sections["SEQ"].sequences[sequence_no][1] - self.dlc_sections["SEQ"].playlist_offset
+		sequence_no = self.dlc_sections[b"XLS"].action_tree[action_code[0]][action_code[1]][action_code[2]][action_code[3]]["seq"]
+		apl_no = self.dlc_sections[b"SEQ"].sequences[sequence_no][1] - self.dlc_sections[b"SEQ"].playlist_offset
 
-		amf_numbers = [i[0] for i in self.dlc_sections["APL"].playlists[apl_no] if i[1] == "AUDIO"]
+		amf_numbers = [i[0] for i in self.dlc_sections[b"APL"].playlists[apl_no] if i[1] == "AUDIO"]
 
 		delta = len(amf_numbers) - len(audio_files)
 
@@ -1451,7 +1451,7 @@ class dlc(object):
 			a = amf_numbers[i]
 			t = audio_files[i]
 
-			self.dlc_sections["AMF"].replace_track(a, t)
+			self.dlc_sections[b"AMF"].replace_track(a, t)
 
 	def trigger_custom_graphics(self, action_code):
 

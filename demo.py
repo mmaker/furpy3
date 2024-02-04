@@ -35,15 +35,16 @@ from furby import dlc
 ########################################################################
 
 
-def make_hacked_inverting(dlc_in="./dlc/tu003410.dlc", left_gif="./images/demo_eyes/left.gif", right_gif="./images/demo_eyes/right.gif", dlc_out="./newdlc.dlc"):
+def make_hacked_inverting(dlc_in="./dlc/tu003410.dlc", left_gif="./images/demo_eyes/left.gif", right_gif="./images/demo_eyes/right.gif", dlc_out="../custom.dlc"):
 
 	#Open, shrink audio.
 	D = dlc(dlc_in)
 	D.dlc_sections[b"AMF"].minify_audio()
 
+
 	#Pop in exterminate audio (if you'd like.)
-	#D.dlc_sections[b"AMF"].replace_track(138, "./your/audio/file1.a18")
-	#D.dlc_sections[b"AMF"].replace_track(11, "./your/audio/file2.a18")
+	D.replace_audio((75, 0, 2, 6), ["../audio/out.a18"])
+	# D.dlc_sections[b"AMF"].replace_track(11, "./audio/imperial_march-16000_wav.a18")
 
 	#Two gifs here: a left gif, and a right gif.
 
