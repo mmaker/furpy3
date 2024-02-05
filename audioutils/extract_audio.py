@@ -1,9 +1,6 @@
 # extract a18 audio files from a DLC file
-import os
 
-os.mkdir("chunks")
-
-dlcfile = 'Princess.AMF'
+dlcfile = './dlc/tu003410.dlc'
 with open(dlcfile, 'rb') as f:
     dlcdata = bytearray(f.read())
 
@@ -16,7 +13,9 @@ n=0
 while True:
     pos = dlcdata.find(audioheader, pos)-2
     if pos < 0:
+        print("stopping")
         break
+    print("something founds")
     audiolen = dlcdata[pos+1] << 8 | dlcdata[pos]
     print("found audio at 0x{:x} len 0x{:x}".format(pos, audiolen))
     chunk = bytes(dlcdata[pos:pos+audiolen+4])
@@ -24,5 +23,3 @@ while True:
         f.write(chunk)
     n += 1
     pos += 3
-
-print(type(chunk))
