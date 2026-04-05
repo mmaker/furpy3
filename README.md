@@ -1,7 +1,7 @@
 # Furby
 
 <p align="center">
-  <video src="images/furby_demo.mp4" width="400" autoplay loop muted playsinline></video>
+  <video src="https://github.com/user-attachments/assets/ee6acdf6-624e-4780-bb7c-70ec51e7ea39" width="400" autoplay loop muted playsinline></video>
 </p>
 
 feels good to be back on hacking
