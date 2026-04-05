@@ -1,5 +1,9 @@
 # Furby
 
+<p align="center">
+  <video src="images/furby_demo.mp4" width="400" autoplay loop muted playsinline></video>
+</p>
+
 feels good to be back on hacking
 
 ## Audio generation
